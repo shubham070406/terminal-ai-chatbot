@@ -4,7 +4,7 @@ import { generateResponse } from "./utils/fallback.js";
 
 let currentModel = "groq";
 
-console.log(chalk.green("=== AI Terminal Chatbot ==="));
+console.log(chalk.green("*********** AI Terminal Chatbot ***********"));
 console.log(chalk.yellow("Available Commands:"));
 console.log("/groq");
 console.log("/gemini");
@@ -20,7 +20,6 @@ while (true) {
 
     input = input.trim();
 
-    // Empty input check
     if (!input) {
         console.log(
             chalk.red("Please enter something.")
@@ -28,7 +27,6 @@ while (true) {
         continue;
     }
 
-    // Exit
     if (input === "/exit") {
         console.log(
             chalk.green("Goodbye!")
@@ -36,7 +34,6 @@ while (true) {
         break;
     }
 
-    // Switch to Groq
     if (input === "/groq") {
         currentModel = "groq";
 
@@ -47,7 +44,6 @@ while (true) {
         continue;
     }
 
-    // Switch to Gemini
     if (input === "/gemini") {
         currentModel = "gemini";
 
@@ -58,7 +54,6 @@ while (true) {
         continue;
     }
 
-    // Help command
     if (input === "/help") {
 
         console.log(`
@@ -74,13 +69,11 @@ Commands:
         continue;
     }
 
-    // Clear screen
     if (input === "/clear") {
         console.clear();
         continue;
     }
 
-    // Generate AI response
     try {
 
         const response = await generateResponse(
